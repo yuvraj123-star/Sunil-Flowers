@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Kids Fashion World and Flowers Decoration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kids Fashion World and Flowers Decoration — curated fashion & fresh flowers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1:#fcefee; --bg-2:#f9f9f9; --accent:#a5427e; --accent-2:#f962a6;
+      --muted:#5a3f6e; --card-bg:#ffffff; --dark:#3f2e56; --radius-lg:18px; --radius-xl:25px;
+      --max-width:1200px; --transition:280ms cubic-bezier(.2,.9,.2,1); --elev-1:0 8px 30px rgba(165,66,126,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial;
+      background:linear-gradient(90deg,var(--bg-1),var(--bg-2)); color:var(--dark); line-height:1.45;}
+
+    nav{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);box-shadow:var(--elev-1);z-index:800}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-weight:800;color:var(--accent);letter-spacing:1.5px;font-size:1.2rem}
+    .nav-links{display:flex;gap:1rem;align-items:center;list-style:none;margin:0;padding:0}
+    .nav-links a{display:inline-block;padding:.5rem .85rem;border-radius:999px;text-decoration:none;font-weight:600;color:var(--muted);transition:all var(--transition)}
+    .nav-links a[aria-current="page"], .nav-links a:focus, .nav-links a:hover{color:var(--accent-2);box-shadow:0 6px 20px rgba(249,98,166,0.12)}
+    .hamburger{display:none;border:0;background:none;padding:.25rem;cursor:pointer}
+    .hamburger .bar{width:22px;height:2px;background:var(--accent);display:block;margin:4px 0;border-radius:2px}
+    .mobile-panel{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:flex-start;justify-content:flex-end;padding-top:64px;z-index:900}
+    .mobile-panel .panel-inner{width:280px;background:white;height:100%;padding:2.25rem 1.25rem;box-shadow:-8px 0 36px rgba(0,0,0,.15);display:flex;flex-direction:column;gap:1.25rem}
+
+    .section{max-width:var(--max-width);margin:2.5rem auto;padding:0 1.25rem}
+    .center{text-align:center}
+    .muted{color:#7a5f86}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:1rem}
+    .card{background:var(--card-bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--elev-1);display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(165,66,126,.18)}
+    .card img{width:100%;height:300px;object-fit:cover;display:block}
+    .card-body{padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+    .card h3{margin:0;font-size:1.05rem;color:var(--accent);font-weight:700}
+    .card p{margin:0;color:#666;font-size:.95rem}
+    .card .shop{margin-top:auto;align-self:flex-start;padding:.5rem .9rem;border-radius:999px;border:none;background:var(--accent-2);color:white;font-weight:700}
+
+    footer{padding:1.25rem;text-align:center;color:#7a5f86}
+    .footer-icons{display:flex;gap:14px;justify-content:center;align-items:center;margin-top:.4rem}
+    .footer-icons a{display:inline-flex;width:42px;height:42px;border-radius:50%;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 30% 20%,#fff 0%,#f6e9f1 60%,#f2d8ea 100%); box-shadow:0 6px 18px rgba(165,66,126,.18); transition:.25s transform}
+    .footer-icons a:hover{transform:translateY(-3px) scale(1.05)}
+    .footer-icons a:hover{background: #d9d4e0;}
+    .icon-x svg{border-radius:10px}
+
+    @media (max-width:1100px){.cards{grid-template-columns:repeat(auto-fill, minmax(200px, 1fr))}}
+    @media (max-width:720px){
+      .nav-links{display:none} .hamburger{display:block} .mobile-panel{display:flex}
+    }
+    @media (max-width:420px){.cards{grid-template-columns:1fr}}
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="nav-inner">
+        <div class="logo" tabindex="0">fashion world / decoration</div>
+        <ul class="nav-links" role="menubar">
+          <li><a href="#hero" role="menuitem" aria-current="page">Home</a></li>
+          <li><a href="#fashion" role="menuitem">Fashion</a></li>
+          <li><a href="#flowers" role="menuitem">Flowers</a></li>
+          <li><a href="#contact" role="menuitem">Contact</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburgerBtn">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+    
+  </header>
+
+  <main>
+    <section class="section" aria-label="Categories">
+      <div class="center" style="margin-bottom:1rem">
+        <h2 style="margin:0;font-size:1.3rem;color:var(--accent)">Shop by Category</h2>
+        <p class="muted">Explore curated collections for every occasion</p>
+      </div>
+
+      <div class="cards" role="list">
+        <article class="card" role="listitem" id="fashion">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.36_b0593967.jpg" alt="Marriage room bed canopy decorated with roses" />
+          <div class="card-body">
+            <h3>Marriage Room Decor</h3>
+            <p>Rose canopy, petals walkway, premium fabric drapes.</p>
+            <a class="shop" href="#contact" aria-label="Enquire Marriage Room Decoration">Enquire</a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.48_14ea9176.jpg" alt="Groom's car decorated with orchids, roses and ribbons" />
+          <div class="card-body">
+            <h3>Dulhe Ki Car</h3>
+            <p>Orchids, roses and ribbons for baraat entry.</p>
+            <a class="shop" href="#contact" aria-label="Book Groom Car Decoration">Book</a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.47.25_22e98a0e.jpg" alt="Groom's car decorated with orchids, roses and ribbons" />
+          <div class="card-body">
+            <h3>Dulhe Ki Car</h3>
+            <p>Orchids, roses and ribbons for baraat entry.</p>
+            <a class="shop" href="#contact" aria-label="Book Groom Car Decoration">Book</a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.40_14145609.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="#contact" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.39_63231d54.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="#contact" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.40_14145609.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="#contact" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.41_fed4f0b5.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="#contact" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.48_21441bac.jpg" alt="Elegant dresses collection" />
+          <div class="card-body">
+            <h3>Elegant Dresses</h3>
+            <p>Evening wear and office-ready premium fabrics.</p>
+            <a class="shop" href="#" aria-label="Shop Elegant Dresses">Shop</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:var(--max-width);margin:0 auto;padding:0 1.25rem">
+      <div class="footer-icons">
+        <a href="https://wa.me/919621395118" target="_blank" aria-label="WhatsApp">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="26" height="26">
+        </a>
+        <a href="https://instagram.com/sunil.p541" target="_blank" aria-label="Instagram">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="" width="26" height="26">
+        </a>
+        <a href="https://facebook.com/sunil.p541" target="_blank" aria-label="Facebook">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png" alt="" width="26" height="26">
+        </a>
+        <a href="https://x.com/" target="_blank" aria-label="X (Twitter)" class="icon-x" title="X">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="26" height="26" role="img" aria-label="X logo">
+            <rect width="120" height="120" rx="20" fill="#000"/>
+            <path fill="#fff" d="M86.1 17H100L68 53.2 105 103H78.7L56.6 74.1 31.2 103H17.3L50.1 64 14 17h27.2l19.2 25.1L86.1 17Zm-4.6 77.3h7.1L39.1 25.5h-7.6l50 68.8Z"/>
+          </svg>
+        </a>
+      </div>
+      <small>MY SHOP — curated fashion & flowers</small>
+    </div>
+  </footer>
+
+</body>
+</html>

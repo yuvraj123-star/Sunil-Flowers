@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Kids Fashion World and Flowers Decoration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="MY SHOP — curated fashion & fresh flowers. Shop premium outfits and seasonal bouquets. Fast delivery in Mumbai." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+
+  :root{
+      --bg-1:#fcefee; --bg-2:#f9f9f9; --accent:#a5427e; --accent-2:#f962a6;
+      --muted:#5a3f6e; --card-bg:#ffffff; --dark:#3f2e56; --radius-lg:18px; --radius-xl:25px;
+      --max-width:1200px; --transition:280ms cubic-bezier(.2,.9,.2,1); --elev-1:0 8px 30px rgba(165,66,126,0.12);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial;
+      background:linear-gradient(90deg,var(--bg-1),var(--bg-2)); color:var(--dark); line-height:1.45;}
+    .skip-link{position:absolute;left:0;top:0;background:var(--accent);color:#fff;padding:.6rem .9rem;border-radius:0 0 6px 0;transform:translateY(-120%);transition:transform var(--transition);z-index:9999}
+    .skip-link:focus{transform:translateY(0)}
+    #loader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:1500}
+    #loader .spinner{width:46px;height:46px;border-radius:50%;border:5px solid rgba(0,0,0,.08);border-top-color:var(--accent);animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    nav{position:sticky;top:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(6px);box-shadow:var(--elev-1);z-index:800}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-weight:800;color:var(--accent);letter-spacing:1.5px;font-size:1.2rem}
+    .nav-links{display:flex;gap:1rem;align-items:center;list-style:none;margin:0;padding:0}
+    .nav-links a{display:inline-block;padding:.5rem .85rem;border-radius:999px;text-decoration:none;font-weight:600;color:var(--muted);transition:all var(--transition)}
+    .nav-links a[aria-current="page"], .nav-links a:focus, .nav-links a:hover{color:var(--accent-2);box-shadow:0 6px 20px rgba(249,98,166,0.12)}
+    .hamburger{display:none;border:0;background:none;padding:.25rem;cursor:pointer}
+    .hamburger .bar{width:22px;height:2px;background:var(--accent);display:block;margin:4px 0;border-radius:2px}
+    .mobile-panel{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:flex-start;justify-content:flex-end;padding-top:64px;z-index:900}
+    .mobile-panel .panel-inner{width:280px;background:white;height:100%;padding:2.25rem 1.25rem;box-shadow:-8px 0 36px rgba(0,0,0,.15);display:flex;flex-direction:column;gap:1.25rem}
+
+    .hero{min-height:80vh;display:grid;place-items:center;text-align:center;padding:4rem 1.25rem;
+      background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;background-position:center;color:white;position:relative}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.45));}
+    .hero-inner{position:relative;max-width:860px;padding:2rem;text-align:center}
+    .eyebrow{display:inline-block;background:rgba(255,255,255,.06);padding:.35rem .7rem;border-radius:999px;font-weight:700;margin-bottom:1rem;color:rgba(255,255,255,.9)}
+    h1{font-size:2.2rem;margin:.35rem 0 0.75rem;line-height:1.02;font-weight:800;letter-spacing:1px;text-shadow:0 6px 18px rgba(0,0,0,.45)}
+    p.lead{font-weight:600;font-size:1rem;margin-bottom:1.25rem;opacity:.95}
+    .cta-group{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.65rem 1rem;border-radius:999px;border:none;cursor:pointer;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;box-shadow:0 10px 30px rgba(165,66,126,.18)}
+    .btn-outline{background:rgb(120, 171, 212);border:2px solid rgba(255,255,255,.12);color:white}
+
+    .section{max-width:var(--max-width);margin:2.5rem auto;padding:0 1.25rem}
+    .center{text-align:center}
+    .muted{color:#7a5f86}
+
+   
+
+    /* NEW: Advanced card grid (only addition you asked) */
+    .cards{display:grid;grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));gap:1rem} /* responsive minmax grid */ 
+    .card{background:var(--card-bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--elev-1);display:flex;flex-direction:column;transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(165,66,126,.18)}
+    .card img{width:100%;height:300px;object-fit:cover;display:block}
+    .card-body{padding:1rem;display:flex;flex-direction:column;gap:.6rem}
+    .card h3{margin:0;font-size:1.05rem;color:var(--accent);font-weight:700}
+    .card p{margin:0;color:#666;font-size:.95rem}
+    .card .shop{margin-top:auto;align-self:flex-start;padding:.5rem .9rem;border-radius:999px;border:none;background:var(--accent-2);color:white;font-weight:700}
+
+    #contact{background:var(--dark);color:var(--bg-1);padding:3rem 1rem;border-top:6px solid rgba(249,98,166,.07)}
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:1.5rem;max-width:var(--max-width);margin:0 auto}
+    .contact-card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);padding:1.35rem;border-radius:var(--radius-xl);box-shadow:0 12px 36px rgba(0,0,0,.2)}
+    footer{padding:1.25rem;text-align:center;color:#7a5f86}
+    .footer-icons{display:flex;gap:14px;justify-content:center;align-items:center;margin-top:.4rem}
+    .footer-icons a{display:inline-flex;width:42px;height:42px;border-radius:50%;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 30% 20%,#fff 0%,#f6e9f1 60%,#f2d8ea 100%); box-shadow:0 6px 18px rgba(165,66,126,.18); transition:.25s transform}
+    .footer-icons a:hover{transform:translateY(-3px) scale(1.05)}
+    .footer-icons a:hover{background: #d9d4e0;}
+
+    .icon-x svg{border-radius:10px}
+
+    @media (max-width:1100px){.cards{grid-template-columns:repeat(auto-fill, minmax(200px, 1fr))}}
+    @media (max-width:720px){
+      .nav-links{display:none} .hamburger{display:block} .mobile-panel{display:flex}
+      h1{font-size:1.6rem} .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:420px){.cards{grid-template-columns:1fr}}
+    :focus{outline:none}
+    a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid rgba(249,98,166,.22);outline-offset:3px;border-radius:8px}
+
+    /* Simple AI chat widget styles */
+    .chat-bubble{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 12px 30px rgba(0,0,0,.25);display:grid;place-items:center;color:#fff;font-weight:800;cursor:pointer;z-index:999}
+    .chat-panel{position:fixed;right:18px;bottom:86px;width:320px;max-height:60vh;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);display:none;flex-direction:column;overflow:hidden;z-index:999}
+    .chat-header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:.7rem 1rem;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+    .chat-body{padding:.75rem;height:44vh;overflow:auto;font-size:.95rem}
+    .msg{margin:.35rem 0;padding:.55rem .7rem;border-radius:12px;max-width:85%}
+    .bot{background:#f3e9f1;color:#2c1230}
+    .me{background:#e8f6ff;color:#0d3850;margin-left:auto}
+    .chat-input{display:flex;gap:.4rem;padding:.6rem;border-top:1px solid #eee}
+    .chat-input input{flex:1;padding:.55rem .7rem;border-radius:10px;border:1px solid #ddd}
+    .chat-input button{padding:.55rem .8rem;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:700}
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div id="loader" role="status" aria-live="polite"><span class="spinner" aria-hidden="true"></span><span class="sr-only" style="position:absolute;left:-9999px">Loading</span></div>
+
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="nav-inner">
+        <div class="logo" tabindex="0">fashion world / decoration</div>
+        <ul class="nav-links" role="menubar">
+          <li><a href="#hero" role="menuitem" aria-current="page">Home</a></li>
+          <li><a href="fashion.html" role="menuitem">Fashion</a></li>
+          <li><a href="flower.html" role="menuitem">Flowers</a></li>
+          <li><a href="#contact" role="menuitem">Contact</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" id="hamburgerBtn">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+      <div class="panel-inner" role="dialog" aria-label="Mobile navigation">
+        <button id="closePanel" aria-label="Close menu" style="justify-self:flex-end;background:none;border:0;font-weight:800;color:var(--muted);font-size:1rem;cursor:pointer">Close ✕</button>
+        <nav>
+          <ul style="display:flex;flex-direction:column;gap:1rem;list-style:none;padding:0;margin:0">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="fashion.html">Fashion</a></li>
+            <li><a href="flower.html">Flowers</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="hero" aria-label="Welcome to My Shop">
+      <div class="hero-inner">
+        <div class="eyebrow">Curated & Local</div>
+        <h1>Where <span style="color:var(--accent-2)">Fashion</span> meets the beauty of <span style="color:var(--accent)">Flowers</span></h1>
+        <p class="lead">Timeless outfits, seasonal bouquets — fast city delivery. Shop premium picks from our curated collections.</p>
+        <div class="cta-group" role="group" aria-label="Hero call to actions">
+          <a class="btn btn-primary" href="fashion.html">Shop Fashion</a>
+          <a class="btn btn-outline" href="flower.html">Shop Flowers</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Categories">
+      <div class="center" style="margin-bottom:1rem">
+        <h2 style="margin:0;font-size:1.3rem;color:var(--accent)">Shop by Category</h2>
+        <p class="muted">Explore curated collections for every occasion</p>
+      </div>
+
+      <!-- ONLY CARDS UPDATED -->
+      <div class="cards" role="list">
+        <article class="card" role="listitem" id="fashion">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.36_b0593967.jpg" alt="Marriage room bed canopy decorated with roses" />
+          <div class="card-body">
+            <h3>Marriage Room Decor</h3>
+            <p>Rose canopy, petals walkway, premium fabric drapes.</p>
+            <a class="shop" href="#contact" aria-label="Enquire Marriage Room Decoration">Enquire</a>
+          </div>
+        </article>
+
+<!-- img 1 -->
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.48_14ea9176.jpg" alt="Groom's car decorated with orchids, roses and ribbons" />
+          <div class="card-body">
+            <h3>Dulhe Ki Car</h3>
+            <p>Orchids, roses and ribbons for baraat entry.</p>
+            <a class="shop" href="#contact" aria-label="Book Groom Car Decoration">Book</a>
+          </div>
+        </article>
+<!-- img 1 -->
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.47.25_22e98a0e.jpg" alt="Groom's car decorated with orchids, roses and ribbons" />
+          <div class="card-body">
+            <h3>Dulhe Ki Car</h3>
+            <p>Orchids, roses and ribbons for baraat entry.</p>
+            <a class="shop" href="#contact" aria-label="Book Groom Car Decoration">Book</a>
+          </div>
+        </article>
+<!-- img 2 -->
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.40_14145609.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="https://wa.me/919621395118" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+        <!-- img 3 -->
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.39_63231d54.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="https://wa.me/919621395118" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+        <!-- img 4 -->
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.40_14145609.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="#contact" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+        <!-- img 5 -->
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.41_fed4f0b5.jpg" alt="Colorful mehndi floral backdrop wall with garlands" />
+          <div class="card-body">
+            <h3>Mehndi Backdrop</h3>
+            <p>Vibrant floral wall for haldi–mehndi photos.</p>
+            <a class="shop" href="#contact" aria-label="Book Mehndi Backdrop Decoration">Book</a>
+          </div>
+        </article>
+
+        <!-- Extra fashion sample (optional local image later) -->
+        <article class="card" role="listitem">
+          <img loading="lazy" src="WhatsApp Image 2025-09-07 at 19.51.48_21441bac.jpg" alt="Elegant dresses collection" />
+          <div class="card-body">
+            <h3>Elegant Dresses</h3>
+            <p>Evening wear and office-ready premium fabrics.</p>
+            <a class="shop" href="#" aria-label="Shop Elegant Dresses">Shop</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" aria-label="Contact section">
+      <div class="section">
+        <div class="center" style="margin-bottom:1rem">
+          <h2 style="margin:0;color:var(--accent)">Contact Us</h2>
+          <p class="muted">Questions about orders, customization or delivery? We're here to help.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card" aria-label="Contact details">
+            <p><strong>Phone:</strong> <a href="tel:+919621395118" style="color:var(--accent-2);text-decoration:none">+91 96213 95118</a></p>
+            <p><strong>Email:</strong> <a href="mailto:sunilkumar.com" style="color:var(--accent-2);text-decoration:none">sunilkumar.com</a></p>
+            <p><strong>Address:</strong> 123 Fashion St, Uttar Pradesh, India</p>
+
+            <div style="margin-top:1rem">
+              <p style="margin:0 0 .5rem"><strong>Follow & chat</strong></p>
+              <div style="display:flex;gap:.6rem;align-items:center">
+                <!-- Correct wa.me format -->
+                <a href="https://wa.me/919621395118" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="28" height="28">
+                </a>
+                <a href="https://facebook.com/sunil.p541" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png" alt="" width="28" height="28">
+                </a>
+                <a href="https://instagram.com/sunil.p541" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="" width="28" height="28">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Message sent — we'll reply shortly.</div>
+
+    <footer>
+      <div style="max-width:var(--max-width);margin:0 auto;padding:0 1.25rem">
+        <div class="footer-icons">
+          <a href="https://wa.me/919621395118" target="_blank" aria-label="WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="26" height="26">
+          </a>
+          <a href="https://instagram.com/sunil.p541" target="_blank" aria-label="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="" width="26" height="26">
+          </a>
+          <a href="https://facebook.com/sunil.p541" target="_blank" aria-label="Facebook">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png" alt="" width="26" height="26">
+          </a>
+          <!-- Working X icon -->
+          <a href="https://x.com/" target="_blank" aria-label="X (Twitter)" class="icon-x" title="X">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="26" height="26" role="img" aria-label="X logo">
+              <rect width="120" height="120" rx="20" fill="#000"/>
+              <path fill="#fff" d="M86.1 17H100L68 53.2 105 103H78.7L56.6 74.1 31.2 103H17.3L50.1 64 14 17h27.2l19.2 25.1L86.1 17Zm-4.6 77.3h7.1L39.1 25.5h-7.6l50 68.8Z"/>
+            </svg>
+          </a>
+        </div>
+        <small>MY SHOP — curated fashion & flowers</small>
+      </div>
+    </footer>
+  </main>
+
+  <!-- AI CHAT WIDGET (vanilla JS mini FAQ bot) -->
+  <div class="chat-bubble" id="chatOpen" title="Ask about Decoration & Fashion">AI</div>
+  <div class="chat-panel" id="chatPanel" aria-live="polite" aria-label="AI chat">
+    <div class="chat-header">AI Assistant
+      <button id="chatClose" style="border:0;background:none;color:#fff;font-weight:800;cursor:pointer">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+      <div class="msg bot">Hi! Ask about marriage hall decor, dulhe ki car, mehndi backdrop, or fashion sizing & delivery.</div>
+    </div>
+    <div class="chat-input">
+      <input id="chatInput" type="text" placeholder="Type a question… (e.g., car decoration price)" />
+      <button id="chatSend">Send</button>
+    </div>
+  </div>
+
+  <script defer>
+    // Loader hide
+    document.addEventListener('DOMContentLoaded',()=>{
+      const loader = document.getElementById('loader');
+      if(loader){loader.style.opacity='0';setTimeout(()=>loader.style.display='none',350)}
+      document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const closePanel = document.getElementById('closePanel');
+    function openMobile(){ mobilePanel.style.display='flex'; mobilePanel.setAttribute('aria-hidden','false'); hamburger.setAttribute('aria-expanded','true'); }
+    function closeMobile(){ mobilePanel.style.display='none'; mobilePanel.setAttribute('aria-hidden','true'); hamburger.setAttribute('aria-expanded','false'); }
+    hamburger.addEventListener('click',()=>{const ex=hamburger.getAttribute('aria-expanded')==='true'; ex?closeMobile():openMobile();});
+    closePanel.addEventListener('click',closeMobile);
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const href=this.getAttribute('href'); if(href.length>1){ const t=document.querySelector(href); if(t){e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); closeMobile();}}
+      });
+    });
+
+    // MINI AI FAQ BOT (rule-based; no backend)
+    const QA = [
+      {k:/\bprice\b.*(car|dulhe|groom)/i, a:"Dulhe ki car decoration packages ₹1,999 se start; premium orchids/roses themes ₹3,999–₹6,999. Exact quote car model & flowers pe depend karta hai."},
+      {k:/\bmarriage\b|\broom\b|\bsuhaag\b/i, a:"Marriage room decor: rose canopy, petals walkway, LED candles. Basic ₹4,999; deluxe ₹8,999+. Same-day booking availability poochhne ke liye WhatsApp karein."},
+      {k:/\bstage\b|\breception\b/i, a:"Wedding stage: floral arches + warm LED. 16x12 ft setup ₹14k–₹35k (flowers, lights, logistics included)."},
+      {k:/\bmehndi\b|\bbackdrop\b|\bhaldi\b/i, a:"Mehndi/haldi backdrop vibrant floral wall & props ke saath ₹5k–₹12k."},
+      {k:/\bdelivery\b|\bshipping\b/i, a:"City-wide delivery 24–48 hours; express slots limited. Decoration on-site team handle karegi."},
+      {k:/\bsize\b|\bmeasurement\b|\bfashion\b/i, a:"Fashion sizing: standard IN sizes XS–XXL; exchange 7 days. Fabric details product page par honge."},
+      {k:/\bcontact\b|\bbook\b|\bwhatsapp\b/i, a:"Booking/queries: WhatsApp https://wa.me/919621395118 par message bhejein. Quick reply!"},
+      {k:/\baddress\b|\blocation\b/i, a:"Service area: Mumbai & nearby cities; outstation on request. Studio: 123 Fashion St, Uttar Pradesh (demo)."}
+    ]; // Simple intents
+
+    const openBtn = document.getElementById('chatOpen');
+    const panel = document.getElementById('chatPanel');
+    const closeBtn = document.getElementById('chatClose');
+    const bodyEl = document.getElementById('chatBody');
+    const inputEl = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('chatSend');
+
+    function addMsg(text, cls){ const d=document.createElement('div'); d.className='msg '+cls; d.textContent=text; bodyEl.appendChild(d); bodyEl.scrollTop=bodyEl.scrollHeight; }
+    function reply(q){
+      for (const {k,a} of QA){ if(k.test(q)) return a; }
+      return "Yeh sawal acha hai! Decoration themes, pricing, sizes ya delivery ke baare me specific keyword likhein, ya WhatsApp par connect karein: wa.me/919621395118";
+    }
+    openBtn.addEventListener('click',()=>{panel.style.display='flex'; inputEl.focus();});
+    closeBtn.addEventListener('click',()=>{panel.style.display='none';});
+    sendBtn.addEventListener('click',()=>{ const v=inputEl.value.trim(); if(!v) return; addMsg(v,'me'); setTimeout(()=>addMsg(reply(v),'bot'), 250); inputEl.value=''; inputEl.focus();});
+    inputEl.addEventListener('keydown',(e)=>{ if(e.key==='Enter'){ sendBtn.click(); }});
+
+    // Accessibility nicety
+    document.addEventListener('keydown',e=>{ if(e.key==='Escape') panel.style.display='none'; if(e.key==='Escape') closeMobile(); });
+  </script>
+</body>
+</html>
